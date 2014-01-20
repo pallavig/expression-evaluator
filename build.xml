@@ -1,0 +1,51 @@
+<project name = "expression-evaluator">
+
+    <property file ="build.properties"></property>
+
+    <target name = "clear">
+        <delete dir="build/"></delete>
+    </target>
+
+    <target name="createFolderStructure">
+        <mkdir dir="build"></mkdir>
+        <mkdir dir="build/classes"></mkdir>
+        <mkdir dir="build/testClasses"></mkdir>
+    </target>
+
+    <target name="compile" depends="createFolderStructure">
+        <javac srcdir="src" destdir="${classes}" includeAntRuntime="false"></javac>
+    </target>
+
+    <target name="testCompile" depends="compile">
+        <javac srcdir="test" destdir="${testClasses}" includeAntRuntime="false" classpath="${jarPath}"></javac>
+    </target>
+
+    <target name="runTest" depends="testCompile">
+        <junit haltonfailure="yes">
+            <classpath>
+                <pathelement location="${classes}" />
+                <pathelement location="${testClasses}" />
+                <pathelement location="${jarPath}"/>
+            </classpath>
+            <batchtest>
+                <fileset dir="${testClasses}">
+                    <include name="**/*Test*" />
+                </fileset>
+            </batchtest>
+            <formatter type = "brief" usefile = "false"/>
+        </junit>
+    </target>
+
+    <target name="createJar" depends="runTest">
+        <mkdir dir="build/expression-evaluator/"></mkdir>
+        <mkdir dir="build/expression-evaluator/lib"></mkdir>
+        <mkdir dir="build/expression-evaluator/bin"></mkdir>
+        <jar destfile = "build/expression-evaluator/lib/expression-evaluator.jar" basedir="${classes}"/>
+        <copy file="shell-scripts/jel.sh" tofile="build/expression-evaluator/bin/jel.sh"></copy>
+    </target>
+
+    <target name="createZip" depends="createJar">
+        <zip destfile = "build/expression-evaluator.zip" basedir = "build/expression-evaluator" update = "true"/>
+        <delete dir = "build/expression-evaluator"/>
+    </target>
+</project>
