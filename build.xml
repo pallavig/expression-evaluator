@@ -42,6 +42,8 @@
         <mkdir dir="build/expression-evaluator/bin"></mkdir>
         <jar destfile = "build/expression-evaluator/lib/expression-evaluator.jar" basedir="${classes}"/>
         <copy file="shell-scripts/jel.sh" tofile="build/expression-evaluator/bin/jel.sh"></copy>
+        <copy file="README.md" tofile="build/expression-evaluator/README.md"></copy>
+        <copy file="RELEASE_NOTES" tofile="build/expression-evaluator/RELEASE_NOTES"></copy>
     </target>
 
     <target name="createZip" depends="createJar">

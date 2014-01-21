@@ -1,0 +1,13 @@
+VERSION 0.1
+
+The command to run evaluator is -- sh jel.sh "expression"
+
+You need to give space between operand and operator.
+It works with integers only.
+It supports +,-,*,/,^.
+
+It does not handle braces and negative numbers.
+
+Known Bugs :-
+Calling jel.sh without any arguments gives Exception
+Providing multiple arguments is also not handled.
