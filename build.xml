@@ -17,7 +17,7 @@
     </target>
 
     <target name="testCompile" depends="compile">
-        <javac srcdir="test" destdir="${testClasses}" includeAntRuntime="false" classpath="${jarPath}"></javac>
+        <javac srcdir="test" destdir="${testClasses}" includeAntRuntime="false" classpath="${jarPath};${classes}"></javac>
     </target>
 
     <target name="runTest" depends="testCompile">
