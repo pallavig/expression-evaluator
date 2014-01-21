@@ -21,7 +21,7 @@ public class postfixConverterTest {
     public void testConvertExpressionHavingTwoOperandsAndAdditionOperatorToPostfix() throws Exception {
         String expression = "3 + 4";
         String[] expected = {"3","4","+"};
-        PostfixConverter converter = new PostfixConverter(expression);
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
         String[] postfix = converter.givePostfix();
         assert(areStringArrayEqual(expected,postfix));
     }
@@ -30,7 +30,7 @@ public class postfixConverterTest {
     public void testConvertExpressionHavingTwoOperandsAndMultiplicationOperatorToPostfix() throws Exception {
         String expression = "3 * 4";
         String[] expected = {"3","4","*"};
-        PostfixConverter converter = new PostfixConverter(expression);
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
         String[] postfix = converter.givePostfix();
         assert(areStringArrayEqual(expected,postfix));
     }

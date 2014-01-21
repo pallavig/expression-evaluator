@@ -2,9 +2,9 @@ package pallavig.postfixconversion;
 
 import java.util.Stack;
 
-public class PostfixConverter {
+public class PostfixConverterLib {
     String expression;
-    public PostfixConverter(String expression) {
+    public PostfixConverterLib(String expression) {
         this.expression = expression;
     }
     private boolean isInteger(String arg) {
