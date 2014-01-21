@@ -7,9 +7,9 @@ public class PostfixConverterLib {
     public PostfixConverterLib(String expression) {
         this.expression = expression;
     }
-    private boolean isInteger(String arg) {
+    private boolean isNumber(String arg) {
         try{
-            Integer.parseInt(arg);
+            Double.parseDouble(arg);
             return true;
         }
         catch(Exception e){
@@ -22,7 +22,7 @@ public class PostfixConverterLib {
         String[] postfix = new String[expressionParts.length];
         int i = 0;
         for (String expressionPart : expressionParts) {
-            if(isInteger(expressionPart)) {
+            if(isNumber(expressionPart)) {
                 postfix[i] = expressionPart;
                 i++;
                 if(stack.size() != 0) {

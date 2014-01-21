@@ -35,5 +35,21 @@ public class postfixConverterTest {
         assert(areStringArrayEqual(expected,postfix));
     }
 
-}
+    @Test
+    public void testConversionWithFloatingPointNumbers() throws Exception {
+        String expression = "3.3 / 4.4";
+        String[] expected = {"3.3","4.4","/"};
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
+        String[] postfix = converter.givePostfix();
+        assert(areStringArrayEqual(expected,postfix));
+    }
 
+    @Test
+    public void testConversionWithFloatingPointNumberAndPowerOperator() throws Exception {
+        String expression = "1100.2 ^ 34.2";
+        String[] expected = {"1100.2","34.2","^"};
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
+        String[] postfix = converter.givePostfix();
+        assert(areStringArrayEqual(expected,postfix));
+    }
+}

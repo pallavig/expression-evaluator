@@ -9,7 +9,7 @@ public class EvaluatorTest {
         String[] postfix = {"3","4","+"};
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
         String result = evaluator.getResult();
-        assertEquals(result,"7");
+        assertEquals(result,"7.0");
     }
 
     @Test
@@ -17,7 +17,7 @@ public class EvaluatorTest {
         String[] postfix = {"5","10","*"};
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
         String result = evaluator.getResult();
-        assertEquals(result,"50");
+        assertEquals(result,"50.0");
     }
 
     @Test
@@ -25,7 +25,7 @@ public class EvaluatorTest {
         String[] postfix = {"1","2","-"};
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
         String result = evaluator.getResult();
-        assertEquals(result,"-1");
+        assertEquals(result,"-1.0");
     }
 
     @Test
@@ -33,7 +33,7 @@ public class EvaluatorTest {
         String[] postfix = {"100","2","/"};
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
         String result = evaluator.getResult();
-        assertEquals(result,"50");
+        assertEquals(result,"50.0");
     }
 
     @Test
@@ -42,5 +42,13 @@ public class EvaluatorTest {
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
         String result = evaluator.getResult();
         assertEquals(result,"25.0");
+    }
+
+    @Test
+    public void testEvaluatingExpressionWithTwoOperandsHavingFloatingPointNumber() throws Exception {
+        String[] postfix = {"5.5","2.5","+"};
+        EvaluatorLib evaluator = new EvaluatorLib(postfix);
+        String result = evaluator.getResult();
+        assertEquals(result,"8.0");
     }
 }
