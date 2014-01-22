@@ -1,5 +1,18 @@
-RELEASE 0.2
+RELEASE 0.3
+============
+It handles braces.
+It does not handle nested braces.
+You need to give space between operand and operator.
 
+Example:-
+sh jel.sh "2 + ( 3 * 4 )"
+sh jel.sh "2 + ( 3.3 * 3 ) / ( 2.1 + 3.2 )"
+
+Example:-
+
+
+RELEASE 0.2
+============
 The command to run evaluator is -- sh jel.sh "expression"
 
 You need to give space between operand and operator.
@@ -21,7 +34,7 @@ sh jel.sh "2 * 3"
 sh jel.sh "22.2 + 32.3"
 
 RELEASE 0.1
-
+===========
 The command to run evaluator is -- sh jel.sh "expression"
 
 You need to give space between operand and operator.
