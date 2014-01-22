@@ -64,4 +64,24 @@ public class EvaluatorTest {
 
         assertEquals(result,"8.0");
     }
+
+    @Test
+    public void testEvaluatingWithMultipleOperators() throws Exception {
+        String[] postfix = {"2","3","+","4","*"};
+        EvaluatorLib evaluator = new EvaluatorLib(postfix);
+
+        String result = evaluator.getResult();
+
+        assertEquals(result,"20.0");
+    }
+
+    @Test
+    public void testEvaluatingWithFloatingPointNumbersAndMultipleOperators() throws Exception {
+        String[] postfix = {"2","3","+","4","*","5.5","+","2.5","+"};
+        EvaluatorLib evaluator = new EvaluatorLib(postfix);
+
+        String result = evaluator.getResult();
+
+        assertEquals(result,"28.0");
+    }
 }

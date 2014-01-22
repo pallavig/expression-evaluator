@@ -61,5 +61,25 @@ public class postfixConverterTest {
         assert(areStringArrayEqual(expected,postfix));
     }
 
+    @Test
+    public void testConversionWithMultipleOperators() throws Exception {
+        String expression = "2 + 3 * 4";
+        String[] expected = {"2","3","+","4","*"};
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
 
+        String[] postfix = converter.givePostfix();
+
+        assert(areStringArrayEqual(expected,postfix));
+    }
+
+    @Test
+    public void testConversionWithFloatingPointNumbersAndMultipleOperators() throws Exception {
+        String expression = "2 + 3 * 4 + 5.5 + 2.5";
+        String[] expected = {"2","3","+","4","*","5.5","+","2.5","+"};
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
+
+        String[] postfix = converter.givePostfix();
+
+        assert(areStringArrayEqual(expected,postfix));
+    }
 }
