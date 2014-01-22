@@ -82,4 +82,37 @@ public class postfixConverterTest {
 
         assert(areStringArrayEqual(expected,postfix));
     }
+
+    @Test
+    public void testConversionOfExpressionWithOnlyOnePairOfBraces() throws Exception {
+        String expression = "2 + ( 3 * 4 )";
+        String[] expressionParts = expression.split(" ");
+        String[] expected = {"2","3","4","*","+"};
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
+
+        String[] postfix = converter.givePostfix();
+        assert(areStringArrayEqual(expected,postfix));
+    }
+
+    @Test
+    public void testConversionOfExpressionWithOnlyMultiplePairOfBraces() throws Exception {
+        String expression = "2 + ( 3 * 4 ) + ( 4 + 5 ) * 6";
+        String[] expressionParts = expression.split(" ");
+        String[] expected = {"2","3","4","*","+","4","5","+","+","6","*"};
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
+
+        String[] postfix = converter.givePostfix();
+        assert(areStringArrayEqual(expected,postfix));
+    }
+
+    @Test
+    public void testConversionOfExpressionWithOnlyMultiplePairOfBracesWithFloats() throws Exception {
+        String expression = "2.0 + ( 3 * 4 ) + ( 4 + 5.5 ) * 6.2";
+        String[] expressionParts = expression.split(" ");
+        String[] expected = {"2.0","3","4","*","+","4","5.5","+","+","6.2","*"};
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
+
+        String[] postfix = converter.givePostfix();
+        assert(areStringArrayEqual(expected,postfix));
+    }
 }
