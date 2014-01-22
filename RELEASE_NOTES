@@ -8,9 +8,6 @@ Example:-
 sh jel.sh "2 + ( 3 * 4 )"
 sh jel.sh "2 + ( 3.3 * 3 ) / ( 2.1 + 3.2 )"
 
-Example:-
-
-
 RELEASE 0.2
 ============
 The command to run evaluator is -- sh jel.sh "expression"
