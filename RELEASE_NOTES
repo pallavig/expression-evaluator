@@ -1,6 +1,15 @@
+RELEASE 0.2
+
 The command to run evaluator is -- sh jel.sh "expression"
 
 You need to give space between operand and operator.
 It works with integer and floating point numbers.
 
-It does not handle braces and negative numbers.
+It does not handle braces.
+
+The maximum value that is allowed is 1.7976931348623157E308 and minimum value allowed is 4.9E-324.
+If the result or any value goes beyond the specified values,
+the behaviour can not be guaranteed.
+
+Known Bugs:-
+Running sh jel.sh without any argument gives Exception
