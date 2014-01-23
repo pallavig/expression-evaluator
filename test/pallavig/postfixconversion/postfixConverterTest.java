@@ -214,6 +214,18 @@ public class postfixConverterTest {
     }
 
     @Test
+    public void testConversionNegativeNumber() throws Exception {
+        String expression = "2 - -3";
+        String[] expectedArray = {"2","-3","-"};
+        List<String> expected = Arrays.asList(expectedArray);
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
+
+        List<String> postfix = converter.givePostfix();
+
+        assertEquals(expected, postfix);
+    }
+
+    @Test
     public void testConversionOfExpressionWithOneOperatorWithoutSpaces() throws Exception {
         String expression = "33+45";
         String[] expectedArray = {"33", "45", "+"};
