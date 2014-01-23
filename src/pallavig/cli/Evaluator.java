@@ -1,4 +1,4 @@
-package main;
+package pallavig.cli;
 
 import pallavig.evaluator.EvaluatorLib;
 import pallavig.postfixconversion.PostfixConverterLib;
