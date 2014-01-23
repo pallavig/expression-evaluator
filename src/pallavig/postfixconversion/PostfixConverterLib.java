@@ -1,5 +1,7 @@
 package pallavig.postfixconversion;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class PostfixConverterLib {
@@ -18,47 +20,26 @@ public class PostfixConverterLib {
         }
     }
 
-    private int getLength() {
-        String[] expressionParts = expression.split(" ");
-        int length = 0;
-        for (String expressionPart : expressionParts) {
-            if (expressionPart.equals(")") || expressionPart.equals("("))
-                length--;
-            length++;
-        }
-        return length;
-    }
-
-    public String[] givePostfix() {
+    public List<String> givePostfix() {
         Stack<String> stack = new Stack<String>();
         String[] expressionParts = expression.split(" ");
-        String[] postfix = new String[getLength()];
-        int i = 0;
+        List<String> postfix = new ArrayList<String>();
         for (String expressionPart : expressionParts) {
             if (isNumber(expressionPart)) {
-                postfix[i] = expressionPart;
-                i++;
-                if (stack.size() != 0) {
-                    if (!(stack.peek().equals("("))) {
-                        postfix[i] = stack.pop();
-                        i++;
-                    }
+                postfix.add(expressionPart);
+                if (stack.size() != 0 && !(stack.peek().equals("("))) {
+                    postfix.add(stack.pop());
                 }
                 continue;
             }
             if (expressionPart.equals(")")) {
                 stack.pop();
                 if (stack.size() != 0) {
-                    postfix[i] = stack.pop();
-                    i++;
+                    postfix.add(stack.pop());
                 }
                 continue;
             }
             stack.push(expressionPart);
-        }
-        while (stack.size() != 0) {
-            postfix[i] = stack.pop();
-            i++;
         }
         return postfix;
     }

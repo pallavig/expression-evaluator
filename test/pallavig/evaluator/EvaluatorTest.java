@@ -2,12 +2,17 @@ package pallavig.evaluator;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static junit.framework.Assert.assertEquals;
 
 public class EvaluatorTest {
     @Test
     public void testEvaluatingAnExpressionWithTwoOperandsAndAdditionOperator() throws Exception {
-        String[] postfix = {"3", "4", "+"};
+        String[] postfixArray = {"3", "4", "+"};
+        List<String> postfix = Arrays.asList(postfixArray);
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
 
         String result = evaluator.getResult();
@@ -17,7 +22,8 @@ public class EvaluatorTest {
 
     @Test
     public void testEvaluatingAnExpressionWithTwoOperandsAndMultiplicationOperator() throws Exception {
-        String[] postfix = {"5", "10", "*"};
+        String[] postfixArray = {"5", "10", "*"};
+        List<String> postfix = Arrays.asList(postfixArray);
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
 
         String result = evaluator.getResult();
@@ -27,7 +33,8 @@ public class EvaluatorTest {
 
     @Test
     public void testEvaluatingAnExpressionWithTwoOperandsAndSubstractionOperator() throws Exception {
-        String[] postfix = {"1", "2", "-"};
+        String[] postfixArray = {"1", "2", "-"};
+        List<String> postfix = Arrays.asList(postfixArray);
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
 
         String result = evaluator.getResult();
@@ -37,7 +44,8 @@ public class EvaluatorTest {
 
     @Test
     public void testEvaluatingAnExpressionWithTwoOperandsAndDivisionOperator() throws Exception {
-        String[] postfix = {"100", "2", "/"};
+        String[] postfixArray = {"100", "2", "/"};
+        List<String> postfix = Arrays.asList(postfixArray);
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
 
         String result = evaluator.getResult();
@@ -47,7 +55,8 @@ public class EvaluatorTest {
 
     @Test
     public void testEvaluatingAnExpressionWithTwoOperandsAndPowerOfOperator() throws Exception {
-        String[] postfix = {"5", "2", "^"};
+        String[] postfixArray = {"5", "2", "^"};
+        List<String> postfix = Arrays.asList(postfixArray);
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
 
         String result = evaluator.getResult();
@@ -57,7 +66,8 @@ public class EvaluatorTest {
 
     @Test
     public void testEvaluatingExpressionWithTwoOperandsHavingFloatingPointNumber() throws Exception {
-        String[] postfix = {"5.5", "2.5", "+"};
+        String[] postfixArray = {"5.5", "2.5", "+"};
+        List<String> postfix = Arrays.asList(postfixArray);
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
 
         String result = evaluator.getResult();
@@ -67,7 +77,8 @@ public class EvaluatorTest {
 
     @Test
     public void testEvaluatingWithMultipleOperators() throws Exception {
-        String[] postfix = {"2", "3", "+", "4", "*"};
+        String[] postfixArray = {"2", "3", "+", "4", "*"};
+        List<String> postfix = Arrays.asList(postfixArray);
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
 
         String result = evaluator.getResult();
@@ -77,7 +88,8 @@ public class EvaluatorTest {
 
     @Test
     public void testEvaluatingWithFloatingPointNumbersAndMultipleOperators() throws Exception {
-        String[] postfix = {"2", "3", "+", "4", "*", "5.5", "+", "2.5", "+"};
+        String[] postfixArray = {"2", "3", "+", "4", "*", "5.5", "+", "2.5", "+"};
+        List<String> postfix = Arrays.asList(postfixArray);
         EvaluatorLib evaluator = new EvaluatorLib(postfix);
 
         String result = evaluator.getResult();

@@ -1,11 +1,12 @@
 package pallavig.evaluator;
 
+import java.util.List;
 import java.util.Stack;
 
 public class EvaluatorLib {
-    String[] postfix;
+    List<String> postfix;
 
-    public EvaluatorLib(String[] postfix) {
+    public EvaluatorLib(List<String> postfix) {
         this.postfix = postfix;
     }
 
