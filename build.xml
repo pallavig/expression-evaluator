@@ -46,7 +46,7 @@
         <copy file="RELEASE_NOTES" tofile="build/expression-evaluator/RELEASE_NOTES"></copy>
     </target>
 
-    <target name="createZip" depends="createJar">
+    <target name="dist" depends="createJar">
         <zip destfile = "build/expression-evaluator.zip" basedir = "build/expression-evaluator" update = "true"/>
         <delete dir = "build/expression-evaluator"/>
     </target>
