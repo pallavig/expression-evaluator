@@ -34,7 +34,7 @@ public class PostfixConverterLib {
             }
             if (expressionPart.equals(")")) {
                 stack.pop();
-                if (stack.size() != 0) {
+                if (stack.size() != 0 && !(stack.peek().equals("("))) {
                     postfix.add(stack.pop());
                 }
                 continue;

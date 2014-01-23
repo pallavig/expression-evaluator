@@ -87,6 +87,17 @@ public class EvaluatorTest {
     }
 
     @Test
+    public void testEvaluatingWithPowerOfOperator() throws Exception {
+        String[] postfixArray = {"2", "3", "^"};
+        List<String> postfix = Arrays.asList(postfixArray);
+        EvaluatorLib evaluator = new EvaluatorLib(postfix);
+
+        String result = evaluator.getResult();
+
+        assertEquals(result, "8.0");
+    }
+
+    @Test
     public void testEvaluatingWithFloatingPointNumbersAndMultipleOperators() throws Exception {
         String[] postfixArray = {"2", "3", "+", "4", "*", "5.5", "+", "2.5", "+"};
         List<String> postfix = Arrays.asList(postfixArray);
