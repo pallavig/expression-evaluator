@@ -11,8 +11,8 @@ public class postfixConverterTest {
 
     @Test
     public void testConvertExpressionHavingTwoOperandsAndAdditionOperatorToPostfix() throws Exception {
-        String expression = "3 + 4";
-        String[] expectedArray = {"3", "4", "+"};
+        String expression = "33 + 45";
+        String[] expectedArray = {"33", "45", "+"};
         List<String> expected = Arrays.asList(expectedArray);
         PostfixConverterLib converter = new PostfixConverterLib(expression);
 
@@ -211,6 +211,42 @@ public class postfixConverterTest {
         List<String> postfix = converter.givePostfix();
 
         assertEquals(expected, postfix);
+    }
 
+    @Test
+    public void testConversionOfExpressionWithOneOperatorWithoutSpaces() throws Exception {
+        String expression = "33+45";
+        String[] expectedArray = {"33", "45", "+"};
+        List<String> expected = Arrays.asList(expectedArray);
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
+
+        List<String> postfix = converter.givePostfix();
+
+        assertEquals(expected, postfix);
+    }
+
+
+    @Test
+    public void testConversionWithOnlyTwoOperands() throws Exception {
+        String expression = "3--6";
+        String[] expectedArray = {"3","-6","-"};
+        List<String> expected = Arrays.asList(expectedArray);
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
+
+        List<String> postfix = converter.givePostfix();
+
+        assertEquals(expected, postfix);
+    }
+
+    @Test
+    public void testConversionWithBraces() throws Exception {
+        String expression = "(3--6)+4-50";
+        String[] expectedArray = {"3","-6","-","4","+","50","-"};
+        List<String> expected = Arrays.asList(expectedArray);
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
+
+        List<String> postfix = converter.givePostfix();
+
+        assertEquals(expected, postfix);
     }
 }

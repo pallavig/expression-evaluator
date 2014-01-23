@@ -20,8 +20,18 @@ public class PostfixConverterLib {
         }
     }
 
+    private String getExpressionWithSpacesBetweenOperatorAndOperand() {
+        String expressionWithoutSpaces = expression.replaceAll("( )+", "")
+                .replaceAll("\\+"," \\+ ").replaceAll("-"," - ").replaceAll("\\*"," \\* ")
+                .replaceAll("/"," / ").replaceAll("\\(", " \\( ").replaceAll("\\)"," \\) ")
+                .replaceAll("\\^"," \\^ ").replaceAll("  - "," -");
+        String finalExpression = expressionWithoutSpaces.replaceAll("( )+", " ").trim();
+        return finalExpression;
+    }
+
     public List<String> givePostfix() {
         Stack<String> stack = new Stack<String>();
+        expression = getExpressionWithSpacesBetweenOperatorAndOperand();
         String[] expressionParts = expression.split(" ");
         List<String> postfix = new ArrayList<String>();
         for (String expressionPart : expressionParts) {
