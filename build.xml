@@ -36,7 +36,6 @@
 
     <target name="dist" depends="createJar">
         <zip destfile = "build/expression-evaluator.zip" basedir = "build/dist" update = "true"/>
-        <delete dir = "build/dist"/>
     </target>
 
     <target name="init">
