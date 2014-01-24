@@ -6,7 +6,7 @@ import pallavig.postfixconversion.PostfixConverterLib;
 import java.util.List;
 
 public class Evaluator {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         PostfixConverterLib converter = new PostfixConverterLib(args[0]);
         List<String> postfix = converter.givePostfix();
         EvaluatorLib evaluator = new EvaluatorLib(postfix);

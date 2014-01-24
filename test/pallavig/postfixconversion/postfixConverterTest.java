@@ -261,4 +261,24 @@ public class postfixConverterTest {
 
         assertEquals(expected, postfix);
     }
+
+    @Test
+    public void testConversionWhenFirstNumberIsNegative() throws Exception {
+        String expression = "-1-1";
+        String[] expectedArray = {"-1","1","-"};
+        List<String> expected = Arrays.asList(expectedArray);
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
+
+        List<String> postfix = converter.givePostfix();
+
+        assertEquals(expected, postfix);
+    }
+
+    @Test(expected = java.lang.Exception.class)
+    public void testConversionWithOneOperandAndOneOperator() throws Exception {
+        String expression = "22+";
+        PostfixConverterLib converter = new PostfixConverterLib(expression);
+
+        List<String> actual = converter.givePostfix();
+    }
 }

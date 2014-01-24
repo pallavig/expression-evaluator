@@ -21,15 +21,22 @@ public class PostfixConverterLib {
     }
 
     private String getExpressionWithSpacesBetweenOperatorAndOperand() {
-        String expressionWithoutSpaces = expression.replaceAll("( )+", "")
-                .replaceAll("\\+"," \\+ ").replaceAll("-"," - ").replaceAll("\\*"," \\* ")
-                .replaceAll("/"," / ").replaceAll("\\(", " \\( ").replaceAll("\\)"," \\) ")
-                .replaceAll("\\^"," \\^ ").replaceAll("  - "," -");
+        String expressionWithoutSpaces = expression
+                .replaceAll("( )+", "")
+                .replaceAll("\\+"," \\+ ")
+                .replaceAll("-"," - ")
+                .replaceAll("\\*"," \\* ")
+                .replaceAll("/"," / ")
+                .replaceAll("\\(", " \\( ")
+                .replaceAll("\\)"," \\) ")
+                .replaceAll("\\^"," \\^ ")
+                .replaceAll("  - "," -")
+                .replaceAll("^ - ","-");
         String finalExpression = expressionWithoutSpaces.replaceAll("( )+", " ").trim();
         return finalExpression;
     }
 
-    public List<String> givePostfix() {
+    public List<String> givePostfix() throws Exception {
         Stack<String> stack = new Stack<String>();
         expression = getExpressionWithSpacesBetweenOperatorAndOperand();
         String[] expressionParts = expression.split(" ");
@@ -50,6 +57,9 @@ public class PostfixConverterLib {
                 continue;
             }
             stack.push(expressionPart);
+        }
+        if(stack.size()!=0){
+            throw new Exception();
         }
         return postfix;
     }
